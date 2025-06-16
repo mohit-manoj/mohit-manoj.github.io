@@ -138,13 +138,6 @@
             padding: 0 2rem;
         }
 
-        .find-me {
-            color: #888;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
         .sidebar-social {
             display: flex;
             justify-content: center;
@@ -252,6 +245,16 @@
             display: inline-block;
         }
 
+        .lit-name span {
+            font-size: 1.2rem;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+            background: linear-gradient(to right, var(--accent-color), var(--accent-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
         .lit-name::after {
             content: '';
             position: absolute;
@@ -299,25 +302,6 @@
         .lit-title:hover .highlight::after {
             transform: scaleX(1);
             transform-origin: left;
-        }
-
-        .lit-description {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            max-width: 500px;
-            position: relative;
-        }
-
-        .lit-description::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background: var(--accent-color);
         }
 
         .lit-cta {
@@ -555,7 +539,7 @@
         /* About Section */
         .about-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 1fr;
             gap: 4rem;
             align-items: start;
         }
@@ -570,20 +554,82 @@
             margin-bottom: 1.5rem;
         }
 
+        .about-image {
+            width: 100%;
+            max-width: 380px;
+            height: 480px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+            box-shadow: 0 15px 40px rgba(0, 191, 255, 0.3);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .about-image:hover {
+            transform: translateY(-15px) rotate(3deg) scale(1.08);
+            box-shadow: 0 25px 50px rgba(0, 191, 255, 0.4);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.15);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .skills-category {
+            margin-bottom: 2rem;
+        }
+
+        .skills-category h3 {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .skills-category h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .skills-category h3:hover::after {
+            width: 100%;
+        }
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 1rem;
         }
 
         .skill-item {
+            font-size: 0.95rem;
+            padding: 0.7rem;
             display: flex;
             align-items: center;
             gap: 0.8rem;
             color: var(--accent-color);
             font-weight: 500;
-            padding: 0.8rem;
             background: rgba(0, 191, 255, 0.05);
             border-radius: 10px;
             transition: all 0.3s ease;
@@ -615,88 +661,66 @@
         }
 
         .skill-item i {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             min-width: 25px;
             text-align: center;
         }
 
-        /* Enhanced Language Skills */
-        .language-skills {
-            margin-top: 3rem;
+        /* Updated Language Skills */
+        .language-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
-        .language-title {
-            font-size: 1.3rem;
-            color: var(--accent-color);
-            margin-bottom: 2rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .language-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60%;
-            height: 3px;
-            background: var(--accent-color);
+        .language-card {
+            background: rgba(0, 191, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(0, 191, 255, 0.1);
             transition: all 0.3s ease;
         }
 
-        .language-title:hover::after {
-            width: 100%;
+        .language-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 191, 255, 0.1);
+            border-color: rgba(0, 191, 255, 0.3);
         }
 
-        .language-item {
-            margin-bottom: 1.8rem;
-        }
-
-        .language-name {
+        .language-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 0.8rem;
-            font-size: 1.05rem;
+            margin-bottom: 1rem;
         }
 
-        .language-label {
-            font-weight: 500;
-        }
-
-        .language-rating {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .stars {
-            display: flex;
-            gap: 0.2rem;
-        }
-
-        .stars i {
+        .language-name {
+            font-weight: 600;
             color: var(--accent-color);
-            font-size: 1rem;
+        }
+
+        .language-level {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .language-bar-container {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            overflow: hidden;
         }
 
         .language-bar {
-            height: 12px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 6px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .language-progress {
             height: 100%;
             background: var(--accent-color);
-            border-radius: 6px;
+            border-radius: 4px;
             position: relative;
             transition: width 1.5s ease;
         }
 
-        .language-progress::after {
+        .language-bar::after {
             content: '';
             position: absolute;
             top: 0;
@@ -712,33 +736,64 @@
             100% { transform: translateX(100%); }
         }
 
-        /* Enhanced About Image */
-        .about-image {
-            width: 100%;
-            max-width: 380px;
-            height: 480px;
-            border-radius: 20px;
-            overflow: hidden;
+        /* Achievements Section */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background: rgba(13, 26, 38, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 191, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
             position: relative;
-            margin: 0 auto;
-            box-shadow: 0 15px 40px rgba(0, 191, 255, 0.3);
-            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
         }
 
-        .about-image:hover {
-            transform: translateY(-15px) rotate(3deg) scale(1.08);
-            box-shadow: 0 25px 50px rgba(0, 191, 255, 0.4);
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 191, 255, 0.1);
+            border-color: var(--accent-color);
         }
 
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.5s ease;
+        .achievement-title {
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
         }
 
-        .about-image:hover img {
-            transform: scale(1.15);
+        .achievement-event {
+            font-size: 1rem;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .achievement-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .achievement-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-link:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px var(--accent-color);
         }
 
         /* Projects Section */
@@ -1017,6 +1072,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+
             .contact-social {
                 gap: 1rem;
             }
@@ -1089,9 +1148,26 @@
             background: radial-gradient(circle at 70% 50%, rgba(0, 191, 255, 0.1) 0%, transparent 50%);
             pointer-events: none;
         }
+
+        /* Cinematic transition overlay */
+        .transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-color), #000);
+            z-index: 2000;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
     </style>
 </head>
 <body>
+    <!-- Cinematic transition overlay -->
+    <div class="transition-overlay" id="transitionOverlay"></div>
+
     <!-- Floating background elements -->
     <div class="floating-element" style="width: 300px; height: 300px; top: 10%; left: 10%;"></div>
     <div class="floating-element" style="width: 200px; height: 200px; top: 70%; left: 80%; animation-delay: 2s;"></div>
@@ -1125,15 +1201,21 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#projects" class="nav-link">
-                        <i class="fas fa-code"></i>
-                        <span>Projects</span>
+                    <a href="#skills" class="nav-link">
+                        <i class="fas fa-cogs"></i>
+                        <span>Skills</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="resume.pdf" class="nav-link" download>
-                        <i class="fas fa-file-alt"></i>
-                        <span>Resume</span>
+                    <a href="#achievements" class="nav-link">
+                        <i class="fas fa-trophy"></i>
+                        <span>Achievements</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">
+                        <i class="fas fa-code"></i>
+                        <span>Projects</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -1146,7 +1228,6 @@
         </nav>
 
         <div class="social-section">
-            <p class="find-me">Find With Me</p>
             <div class="sidebar-social">
                 <a href="https://www.instagram.com/mohit._.manoj?igsh=bGpmcW9zOWJkMmZz" target="_blank">
                     <i class="fab fa-instagram"></i>
@@ -1167,11 +1248,8 @@
         <section id="home" class="lit-section">
             <div class="lit-content fade-in">
                 <p class="hello-text">Hello</p>
-                <h1 class="lit-name">I'm Mohit Manoj</h1>
+                <h1 class="lit-name"><span>I'm</span> Mohit Manoj</h1>
                 <h2 class="lit-title">An <span class="highlight">AI & Data Science</span> Undergraduate</h2>
-                <p class="lit-description">
-                    A passionate AI & Data Science undergraduate with hands-on experience in machine learning, data analysis, and full-stack AI development. I specialize in transforming complex data into actionable insights and building intelligent systems.
-                </p>
                 <div class="lit-cta">
                     <a href="#projects" class="btn btn-primary smooth-scroll">
                         <span>View My Work</span>
@@ -1205,9 +1283,19 @@
                     <p>Hello! I'm Mohit Manoj, a passionate AI & Data Science undergraduate with hands-on experience in machine learning, data analysis, and full-stack AI development. I specialize in transforming complex data into actionable insights and building intelligent systems that solve real-world problems.</p>
                     
                     <p>Currently pursuing my BTech at Viswajyothi College of Engineering, I've gained practical experience through internships like at Infosys, where I worked on NLP, system integration, and API development. My academic journey has equipped me with both technical expertise and problem-solving skills.</p>
-                    
-                    <p>Here are some technologies I'm proficient with:</p>
-                    
+                </div>
+                <div class="about-image">
+                    <img src="about-profile.jpg" alt="Mohit Manoj">
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="content-section fade-in">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-container">
+                <div class="skills-category">
+                    <h3>Technical Skills</h3>
                     <div class="skills-grid">
                         <div class="skill-item">
                             <i class="fab fa-python"></i>
@@ -1258,67 +1346,95 @@
                             <span>OCR Technology</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="language-skills">
-                        <h3 class="language-title">Language Proficiency</h3>
-                        <div class="language-item">
-                            <div class="language-name">
-                                <span class="language-label">English</span>
-                                <div class="language-rating">
-                                    <span>Fluent</span>
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
+                <div class="skills-category">
+                    <h3>Additional Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fas fa-paint-brush"></i>
+                            <span>Designing</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-film"></i>
+                            <span>Video Editing</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-users"></i>
+                            <span>Leadership</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Problem Solving</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Language Proficiency</h3>
+                    <div class="language-container">
+                        <div class="language-card">
+                            <div class="language-header">
+                                <span class="language-name">English</span>
+                                <span class="language-level">Fluent</span>
                             </div>
-                            <div class="language-bar">
-                                <div class="language-progress" style="width: 100%;"></div>
+                            <div class="language-bar-container">
+                                <div class="language-bar" style="width: 100%;"></div>
                             </div>
                         </div>
-                        <div class="language-item">
-                            <div class="language-name">
-                                <span class="language-label">Malayalam</span>
-                                <div class="language-rating">
-                                    <span>Native</span>
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
+                        <div class="language-card">
+                            <div class="language-header">
+                                <span class="language-name">Malayalam</span>
+                                <span class="language-level">Native</span>
                             </div>
-                            <div class="language-bar">
-                                <div class="language-progress" style="width: 100%;"></div>
+                            <div class="language-bar-container">
+                                <div class="language-bar" style="width: 100%;"></div>
                             </div>
                         </div>
-                        <div class="language-item">
-                            <div class="language-name">
-                                <span class="language-label">Hindi</span>
-                                <div class="language-rating">
-                                    <span>Intermediate</span>
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                </div>
+                        <div class="language-card">
+                            <div class="language-header">
+                                <span class="language-name">Hindi</span>
+                                <span class="language-level">Intermediate</span>
                             </div>
-                            <div class="language-bar">
-                                <div class="language-progress" style="width: 80%;"></div>
+                            <div class="language-bar-container">
+                                <div class="language-bar" style="width: 80%;"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <img src="about-profile.jpg" alt="Mohit Manoj">
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="content-section fade-in">
+            <h2 class="section-title">Achievements</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <h3 class="achievement-title">3rd Place - Gen AI Hackathon</h3>
+                    <p class="achievement-event">National Level Competition by amFOSS</p>
+                    <p class="achievement-description">
+                        Demonstrated exceptional AI expertise in a 24-hour hackathon, developing an innovative healthcare assistant solution using advanced NLP and computer vision technologies.
+                    </p>
+                    <a href="https://devpost.com/software/curabot-your-ai-powered-smart-healthcare-assistant" class="achievement-link" target="_blank">
+                        <span>View Project</span>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <div class="achievement-card">
+                    <h3 class="achievement-title">Top 5 - Tech Expo</h3>
+                    <p class="achievement-event">College Technology Exhibition</p>
+                    <p class="achievement-description">
+                        Recognized for innovative IoT-based projects and robotic designs at the annual college technology exhibition, showcasing practical applications of emerging technologies.
+                    </p>
+                </div>
+
+                <div class="achievement-card">
+                    <h3 class="achievement-title">Regional Winner - SAP Hackathon</h3>
+                    <p class="achievement-event">SAP HUGH FEST 2025</p>
+                    <p class="achievement-description">
+                        Selected for the state round in the prestigious SAP Hackathon after winning the regional competition, competing against top engineering talent from across the region.
+                    </p>
                 </div>
             </div>
         </section>
@@ -1409,6 +1525,53 @@
     </div>
 
     <script>
+        // Cinematic navigation transition
+        function cinematicNavigate(targetId) {
+            const overlay = document.getElementById('transitionOverlay');
+            const targetSection = document.querySelector(targetId);
+            
+            // Show overlay with animation
+            overlay.style.opacity = '1';
+            
+            // After a short delay, scroll to the target
+            setTimeout(() => {
+                if (targetSection) {
+                    const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset;
+                    
+                    // Smooth scroll with easing function
+                    const startPosition = window.pageYOffset;
+                    const distance = targetPosition - startPosition;
+                    const duration = 800; // milliseconds
+                    let startTime = null;
+                    
+                    function animation(currentTime) {
+                        if (startTime === null) startTime = currentTime;
+                        const timeElapsed = currentTime - startTime;
+                        const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+                        window.scrollTo(0, run);
+                        if (timeElapsed < duration) requestAnimationFrame(animation);
+                    }
+                    
+                    function easeInOutQuad(t, b, c, d) {
+                        t /= d/2;
+                        if (t < 1) return c/2*t*t + b;
+                        t--;
+                        return -c/2 * (t*(t-2) - 1) + b;
+                    }
+                    
+                    requestAnimationFrame(animation);
+                }
+                
+                // Hide overlay after scroll completes
+                setTimeout(() => {
+                    overlay.style.opacity = '0';
+                }, 800);
+                
+                // Close mobile menu if open
+                document.getElementById('sidebar').classList.remove('mobile-open');
+            }, 300);
+        }
+
         // Navigation functionality
         function initNavigation() {
             const navLinks = document.querySelectorAll('.nav-link');
@@ -1419,38 +1582,7 @@
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-                    
-                    if (targetSection) {
-                        // Calculate the position to scroll to
-                        const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset;
-                        
-                        // Smooth scroll with easing function
-                        const startPosition = window.pageYOffset;
-                        const distance = targetPosition - startPosition;
-                        const duration = 1000; // milliseconds
-                        let startTime = null;
-                        
-                        function animation(currentTime) {
-                            if (startTime === null) startTime = currentTime;
-                            const timeElapsed = currentTime - startTime;
-                            const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
-                            window.scrollTo(0, run);
-                            if (timeElapsed < duration) requestAnimationFrame(animation);
-                        }
-                        
-                        function easeInOutQuad(t, b, c, d) {
-                            t /= d/2;
-                            if (t < 1) return c/2*t*t + b;
-                            t--;
-                            return -c/2 * (t*(t-2) - 1) + b;
-                        }
-                        
-                        requestAnimationFrame(animation);
-                    }
-                    
-                    // Close mobile menu if open
-                    document.getElementById('sidebar').classList.remove('mobile-open');
+                    cinematicNavigate(targetId);
                 });
             });
 
@@ -1481,27 +1613,36 @@
 
         // Scroll to top
         function scrollToTop() {
-            const startPosition = window.pageYOffset;
-            const distance = -startPosition;
-            const duration = 800; // milliseconds
-            let startTime = null;
+            const overlay = document.getElementById('transitionOverlay');
+            overlay.style.opacity = '1';
             
-            function animation(currentTime) {
-                if (startTime === null) startTime = currentTime;
-                const timeElapsed = currentTime - startTime;
-                const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
-                window.scrollTo(0, run);
-                if (timeElapsed < duration) requestAnimationFrame(animation);
-            }
-            
-            function easeInOutQuad(t, b, c, d) {
-                t /= d/2;
-                if (t < 1) return c/2*t*t + b;
-                t--;
-                return -c/2 * (t*(t-2) - 1) + b;
-            }
-            
-            requestAnimationFrame(animation);
+            setTimeout(() => {
+                const startPosition = window.pageYOffset;
+                const distance = -startPosition;
+                const duration = 800; // milliseconds
+                let startTime = null;
+                
+                function animation(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+                    window.scrollTo(0, run);
+                    if (timeElapsed < duration) requestAnimationFrame(animation);
+                }
+                
+                function easeInOutQuad(t, b, c, d) {
+                    t /= d/2;
+                    if (t < 1) return c/2*t*t + b;
+                    t--;
+                    return -c/2 * (t*(t-2) - 1) + b;
+                }
+                
+                requestAnimationFrame(animation);
+                
+                setTimeout(() => {
+                    overlay.style.opacity = '0';
+                }, 800);
+            }, 300);
         }
 
         // Scroll animations
@@ -1513,7 +1654,7 @@
                         entry.target.style.transform = 'translateY(0)';
                         
                         // Animate language bars
-                        if (entry.target.id === 'about') {
+                        if (entry.target.id === 'skills') {
                             const languageBars = document.querySelectorAll('.language-progress');
                             languageBars.forEach(bar => {
                                 bar.style.width = bar.style.width;
