@@ -95,7 +95,7 @@
             padding: 1rem 2rem;
             color: #ffffff;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
             border-left: 3px solid transparent;
             font-weight: 500;
             position: relative;
@@ -110,7 +110,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(0, 191, 255, 0.2), transparent);
-            transition: all 0.5s ease;
+            transition: all 0.8s ease;
         }
 
         .nav-link:hover::before,
@@ -123,62 +123,12 @@
             background: rgba(0, 191, 255, 0.1);
             border-left-color: var(--accent-color);
             color: var(--accent-color);
+            transform: translateX(10px);
         }
 
         .nav-link i {
             width: 20px;
             font-size: 1.1rem;
-        }
-
-        .social-section {
-            position: absolute;
-            bottom: 2rem;
-            left: 0;
-            right: 0;
-            padding: 0 2rem;
-        }
-
-        .sidebar-social {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .sidebar-social a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            color: #ffffff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .sidebar-social a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 191, 255, 0.3), transparent);
-            transition: all 0.5s ease;
-        }
-
-        .sidebar-social a:hover::before {
-            left: 100%;
-        }
-
-        .sidebar-social a:hover {
-            background: var(--accent-color);
-            color: #000;
-            transform: translateY(-2px) rotate(5deg);
-            box-shadow: 0 5px 15px rgba(0, 191, 255, 0.4);
         }
 
         /* Main Content */
@@ -205,9 +155,9 @@
 
         .hello-text {
             color: var(--accent-color);
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             position: relative;
@@ -233,9 +183,9 @@
         }
 
         .lit-name {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
+            font-size: clamp(2.5rem, 6vw, 3.8rem);
+            font-weight: 700;
+            margin-bottom: 0.8rem;
             line-height: 1.1;
             background: linear-gradient(to right, #ffffff, var(--accent-light));
             -webkit-background-clip: text;
@@ -246,13 +196,14 @@
         }
 
         .lit-name span {
-            font-size: 1.2rem;
-            vertical-align: middle;
+            font-size: 1rem;
+            vertical-align: baseline;
             margin-right: 0.5rem;
             background: linear-gradient(to right, var(--accent-color), var(--accent-light));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            font-weight: 400;
         }
 
         .lit-name::after {
@@ -274,7 +225,7 @@
         }
 
         .lit-title {
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-size: clamp(1.3rem, 4vw, 2rem);
             font-weight: 300;
             margin-bottom: 2rem;
             color: var(--text-secondary);
@@ -282,7 +233,7 @@
 
         .lit-title .highlight {
             color: var(--accent-color);
-            font-weight: 600;
+            font-weight: 500;
             position: relative;
         }
 
@@ -291,17 +242,14 @@
             position: absolute;
             bottom: -2px;
             left: 0;
-            width: 100%;
+            width: 0;
             height: 2px;
             background: var(--accent-color);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.5s ease;
+            transition: all 0.5s ease;
         }
 
         .lit-title:hover .highlight::after {
-            transform: scaleX(1);
-            transform-origin: left;
+            width: 100%;
         }
 
         .lit-cta {
@@ -763,12 +711,12 @@
         .achievement-title {
             font-size: 1.3rem;
             color: var(--accent-color);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             font-weight: 600;
         }
 
         .achievement-event {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: #ffffff;
             margin-bottom: 0.5rem;
             font-weight: 500;
@@ -778,7 +726,7 @@
             color: var(--text-secondary);
             line-height: 1.6;
             margin-bottom: 1.5rem;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
         }
 
         .achievement-link {
@@ -979,6 +927,61 @@
             animation: float 15s infinite ease-in-out;
         }
 
+        /* Section-specific floating elements */
+        .home-element {
+            background: rgba(0, 191, 255, 0.05);
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .about-element {
+            background: rgba(0, 191, 255, 0.03);
+            width: 250px;
+            height: 250px;
+            top: 70%;
+            left: 80%;
+            animation-delay: 2s;
+        }
+
+        .skills-element {
+            background: rgba(0, 191, 255, 0.04);
+            width: 200px;
+            height: 200px;
+            top: 30%;
+            left: 60%;
+            animation-delay: 4s;
+        }
+
+        .achievements-element {
+            background: rgba(0, 191, 255, 0.03);
+            width: 350px;
+            height: 350px;
+            top: 50%;
+            left: 20%;
+            animation-delay: 1s;
+        }
+
+        .projects-element {
+            background: rgba(0, 191, 255, 0.04);
+            width: 400px;
+            height: 400px;
+            top: 20%;
+            left: 70%;
+            animation-delay: 3s;
+        }
+
+        .contact-element {
+            background: rgba(0, 191, 255, 0.05);
+            width: 300px;
+            height: 300px;
+            top: 60%;
+            left: 30%;
+            animation-delay: 2s;
+        }
+
         @keyframes float {
             0%, 100% { transform: translate(0, 0) rotate(0deg); }
             25% { transform: translate(20px, 20px) rotate(5deg); }
@@ -1169,9 +1172,12 @@
     <div class="transition-overlay" id="transitionOverlay"></div>
 
     <!-- Floating background elements -->
-    <div class="floating-element" style="width: 300px; height: 300px; top: 10%; left: 10%;"></div>
-    <div class="floating-element" style="width: 200px; height: 200px; top: 70%; left: 80%; animation-delay: 2s;"></div>
-    <div class="floating-element" style="width: 250px; height: 250px; top: 30%; left: 60%; animation-delay: 4s;"></div>
+    <div class="floating-element home-element"></div>
+    <div class="floating-element about-element"></div>
+    <div class="floating-element skills-element"></div>
+    <div class="floating-element achievements-element"></div>
+    <div class="floating-element projects-element"></div>
+    <div class="floating-element contact-element"></div>
 
     <!-- Mobile menu button -->
     <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
@@ -1226,20 +1232,6 @@
                 </li>
             </ul>
         </nav>
-
-        <div class="social-section">
-            <div class="sidebar-social">
-                <a href="https://www.instagram.com/mohit._.manoj?igsh=bGpmcW9zOWJkMmZz" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/mohitmanoj/" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/mohit-manoj" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-            </div>
-        </div>
     </aside>
 
     <!-- Main Content -->
@@ -1413,7 +1405,7 @@
                     <h3 class="achievement-title">3rd Place - Gen AI Hackathon</h3>
                     <p class="achievement-event">National Level Competition by amFOSS</p>
                     <p class="achievement-description">
-                        Demonstrated exceptional AI expertise in a 24-hour hackathon, developing an innovative healthcare assistant solution using advanced NLP and computer vision technologies.
+                        Demonstrated exceptional AI expertise in a 24-hour hackathon, developing an innovative healthcare assistant solution.
                     </p>
                     <a href="https://devpost.com/software/curabot-your-ai-powered-smart-healthcare-assistant" class="achievement-link" target="_blank">
                         <span>View Project</span>
@@ -1425,7 +1417,7 @@
                     <h3 class="achievement-title">Top 5 - Tech Expo</h3>
                     <p class="achievement-event">College Technology Exhibition</p>
                     <p class="achievement-description">
-                        Recognized for innovative IoT-based projects and robotic designs at the annual college technology exhibition, showcasing practical applications of emerging technologies.
+                        Recognized for innovative IoT-based projects and robotic designs at the annual college technology exhibition.
                     </p>
                 </div>
 
@@ -1433,7 +1425,7 @@
                     <h3 class="achievement-title">Regional Winner - SAP Hackathon</h3>
                     <p class="achievement-event">SAP HUGH FEST 2025</p>
                     <p class="achievement-description">
-                        Selected for the state round in the prestigious SAP Hackathon after winning the regional competition, competing against top engineering talent from across the region.
+                        Selected for the state round in the prestigious SAP Hackathon after winning the regional competition.
                     </p>
                 </div>
             </div>
@@ -1469,7 +1461,7 @@
                         <span class="tech-tag">Computer Vision</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/mohit-manoj/Smart-Waste-Management" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://github.com/mohit-manoj/Smart-Waste-Management" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
                     </div>
                 </div>
 
@@ -1484,7 +1476,7 @@
                         <span class="tech-tag">Web Development</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/mohit-manoj/Face-Recognised-Attendance-Marking" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://github.com/mohit-manoj/Face-Recognised-Attendance-Marking" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
                     </div>
                 </div>
             </div>
