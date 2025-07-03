@@ -44,12 +44,17 @@
             padding: 2rem 0;
             position: fixed;
             height: 100vh;
-            left: 0;
+            left: -280px;
             top: 0;
             z-index: 1000;
             border-right: 1px solid rgba(0, 191, 255, 0.1);
             box-shadow: 0 0 30px rgba(0, 191, 255, 0.1);
             overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar.mobile-open {
+            transform: translateX(280px);
         }
 
         .profile-section {
@@ -105,7 +110,7 @@
             font-weight: 500;
             position: relative;
             overflow: hidden;
-            width: calc(100% - 3px); /* Account for border */
+            width: calc(100% - 3px);
         }
 
         .nav-link::before {
@@ -113,7 +118,7 @@
             position: absolute;
             top: 0;
             left: -100%;
-            width: calc(100% - 3px); /* Account for border */
+            width: calc(100% - 3px);
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(0, 191, 255, 0.2), transparent);
             transition: all 0.8s ease;
@@ -139,7 +144,7 @@
 
         /* Main Content */
         .main-content {
-            margin-left: 280px;
+            margin-left: 0;
             flex: 1;
             position: relative;
         }
@@ -1124,19 +1129,6 @@
                 --section-spacing: 6rem;
             }
             
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-            }
-
-            .sidebar.mobile-open {
-                transform: translateX(0);
-            }
-
-            .main-content {
-                margin-left: 0;
-            }
-
             .lit-section,
             .content-section {
                 padding: var(--section-spacing) 2rem;
@@ -1216,19 +1208,6 @@
 
         .mobile-menu-btn:hover {
             transform: scale(1.1);
-        }
-
-        @media (max-width: 1024px) {
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-            }
-            .sidebar.mobile-open {
-                transform: translateX(0);
-            }
-            .main-content {
-                margin-left: 0;
-            }
         }
 
         /* Animations */
