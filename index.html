@@ -1378,15 +1378,11 @@
         <section id="about" class="content-section fade-in">
             <div class="section-bg-animation"></div>
             <h2 class="scroll-reveal section-title">About Me</h2>
-            <div class="about-grid">
+            <div class="about-grid" style="background: linear-gradient(to right, rgba(0,0,0,0.9) 30%, transparent), url('about-profile.jpg') no-repeat right center/cover; background-attachment: fixed;">
                 <div class="about-text">
                     <p>Hello! I'm Mohit Manoj, a passionate AI & Data Science undergraduate with hands-on experience in machine learning, data analysis, and full-stack AI development. I specialize in transforming complex data into actionable insights and building intelligent systems that solve real-world problems.</p>
                     
                     <p>Currently pursuing my BTech at Viswajyothi College of Engineering, I've gained practical experience through internships like at Infosys, where I worked on NLP, system integration, and API development. My academic journey has equipped me with both technical expertise and problem-solving skills.</p>
-                </div>
-                <div class="about-image">
-                    <div class="blend-overlay"></div>
-                    <img src="about-profile.jpg" alt="Mohit Manoj">
                 </div>
             </div>
         </section>
@@ -1815,7 +1811,7 @@
             const sidebar = document.getElementById('sidebar');
             const menuBtn = document.querySelector('.mobile-menu-btn');
             
-            if (!sidebar.contains(e.target) && e.target !== menuBtn) {
+            if (!sidebar.contains(e.target) && e.target !== menuBtn && !menuBtn.contains(e.target)) {
                 sidebar.classList.remove('mobile-open');
                 document.removeEventListener('click', closeMenuOnOutsideClick);
             }
